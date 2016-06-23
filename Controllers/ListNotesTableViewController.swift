@@ -20,7 +20,7 @@ class ListNotesTableViewController: UITableViewController {
         if editingStyle == .Delete {
             RealmHelper.deleteNote(notes[indexPath.row])
             //2
-            notes = RealmHelper.retrieveNotes()
+            notes = RealmHelper.retrieveNotes().sorted("modificationTime", ascending: false)
         }
     }
     
@@ -30,10 +30,19 @@ class ListNotesTableViewController: UITableViewController {
         // we'll add code later
         
     }
+    @IBAction func unwindAndDeleteListNotesViewController(segue: UIStoryboardSegue) {
+        
+        for note in notes{
+            notes.delete(note)
+        }
+        tableView.reloadData()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        notes = RealmHelper.retrieveNotes()
+        notes = RealmHelper.retrieveNotes().sorted("modificationTime", ascending: false)
+        tableView.reloadData()
+
     }
     // 1
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -48,6 +57,7 @@ class ListNotesTableViewController: UITableViewController {
         let note = notes[row]
         cell.noteTitleLabel.text = note.title
         cell.noteModificationTimeLabel.text = note.modificationTime.convertToString()
+        cell.truncatedNoteContentLabel.text = note.content
         
         
         return cell
