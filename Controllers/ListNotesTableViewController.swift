@@ -31,9 +31,9 @@ class ListNotesTableViewController: UITableViewController {
         
     }
     @IBAction func unwindAndDeleteListNotesViewController(segue: UIStoryboardSegue) {
-        
+        print("hi")
         for note in notes{
-            notes.delete(note)
+            RealmHelper.deleteNote(note)
         }
         tableView.reloadData()
     }
