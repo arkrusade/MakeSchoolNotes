@@ -19,6 +19,7 @@ class RealmHelper
         {
             realm.add(note)
         }
+
     }
     class func deleteNote(note: Note)
     {
@@ -30,12 +31,14 @@ class RealmHelper
     class func updateNote(noteToBeUpdated: Note, newNote: Note)
     {
         let realm = try! Realm()
+
         try! realm.write()
             {
                 noteToBeUpdated.title = newNote.title
                 noteToBeUpdated.content = newNote.content
                 noteToBeUpdated.modificationTime = newNote.modificationTime
         }
+
     }
     class func retrieveNotes() -> Results<Note>
     {

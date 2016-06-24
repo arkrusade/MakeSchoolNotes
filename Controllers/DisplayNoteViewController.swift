@@ -26,6 +26,7 @@ class DisplayNoteViewController: UIViewController {
             noteTitleTextField.text = ""
             noteContentTextView.text = ""
         }
+        
     }
     
     override func viewDidLoad() {
@@ -33,7 +34,7 @@ class DisplayNoteViewController: UIViewController {
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let listNotesTableViewController = segue.destinationViewController as! ListNotesTableViewController
-        
+        let realm = try! Realm()
         if let identifier = segue.identifier {
             if identifier == "Cancel" {
                 print("Cancel button tapped")
@@ -42,22 +43,34 @@ class DisplayNoteViewController: UIViewController {
                 print("Save button tapped")
                 
                 if let note = note{
+                    
                     let newNote = note
-                    newNote.title = noteTitleTextField.text ?? ""
-                    newNote.content = noteContentTextView.text ?? ""
+                    try! realm.write()
+                    {
+                        newNote.title = noteTitleTextField.text ?? ""
+                        
+                        newNote.content = noteContentTextView.text ?? ""
+                    }
+                    
+                    
                     RealmHelper.updateNote(note, newNote: newNote)
                     
+                    print("after update")
                 }
                 else{
+                    print("in new")
                     let note = Note()
                     note.title = noteTitleTextField.text ?? ""
                     note.content = noteContentTextView.text
                     note.modificationTime = NSDate()
                     RealmHelper.addNote(note)
-
+                    print("after addNote")
                     listNotesTableViewController.notes = RealmHelper.retrieveNotes()
+                    print("after retrieveNotes")
                 }
+                let listNotesTableViewController = segue.destinationViewController as! ListNotesTableViewController
                 
+                listNotesTableViewController.tableView.reloadData()
                 
                 
                 
