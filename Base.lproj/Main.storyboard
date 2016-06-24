@@ -106,8 +106,8 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Are you sure you want to delete all of your notes?" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KWw-ey-Ib0">
-                                <rect key="frame" x="112" y="150" width="376" height="65"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Are you sure you want to delete all of your notes?" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KWw-ey-Ib0">
+                                <rect key="frame" x="175" y="150" width="250" height="65"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="ffZ-LL-Vyn"/>
                                     <constraint firstAttribute="height" constant="65" id="upK-20-F8F"/>
@@ -129,7 +129,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hE1-Tc-yC9" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="arc-Lr-Y5l" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="896" y="947"/>
+            <point key="canvasLocation" x="928" y="1011"/>
         </scene>
         <!--Notes-->
         <scene sceneID="dVN-r5-8ll">
@@ -226,7 +226,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dXi-TP-ue3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="896" y="217"/>
+            <point key="canvasLocation" x="928" y="225"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bT5-Px-HQC">
@@ -244,7 +244,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1em-Fx-Iml" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="105" y="217"/>
+            <point key="canvasLocation" x="241" y="202"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
